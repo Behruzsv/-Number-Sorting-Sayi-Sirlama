@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label >
+        1'den 99'a kadar olan sayıları for döngüsü ile yan yana <input type="submit" value="Sırala" id="pasifButon">
+    </label>
+    <br />
+      <input type="submit" value="Rastgele Sayı Seç" id="Buton"/>
+    <div id="cikti"></div> 
+
+    <script>
+        const outputDiv = document.getElementById("cikti");
+        const generateButton = document.getElementById("Buton");
+        const PasifButon = document.getElementById("pasifButon");
+        PasifButon.disabled = true;
+        let selectedNumber = null;
+
+    Buton.addEventListener("click", () => {
+      selectedNumber = Math.floor(Math.random() * 99) + 1;
+      updateOutput();
+    });
+
+    function updateOutput() {
+      outputDiv.innerHTML = "";
+      let row = "";
+
+      for (let i = 1; i <= 99; i++) {
+        const span = document.createElement("span");
+        span.textContent = i + " ";
+        
+        if (i === selectedNumber) {
+          span.style.color = "red";
+          span.style.fontWeight = "bold";
+        }
+
+        row += span.outerHTML;
+
+        if (i % 10 === 0) {
+          outputDiv.innerHTML += row + "<br>";
+          row = "";
+        }
+      }
+    }
+
+    updateOutput();
+      </script>
+</body>
+</html>

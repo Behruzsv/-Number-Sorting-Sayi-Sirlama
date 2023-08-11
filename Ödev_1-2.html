@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label >
+        1'den 99'a kadar olan sayıları for döngüsü ile yan yana <input type="submit" value="Sırala" id="pasifButon">
+    </label>
+    <br />
+      <input type="submit" value="Rastgele Sayı Seç" id="Buton"/>
+    <div id="cikti"></div> 
+
+    <script>
+        const outputDiv = document.getElementById("cikti");
+        const generateButton = document.getElementById("Buton");
+        const PasifButon = document.getElementById("pasifButon");
+        PasifButon.disabled = true;
+    
+        generateButton.addEventListener("click", () => {
+      let output = "";
+
+      for (let i = 1; i <= 99; i++) {
+        output += `<span>${i}</span>`;
+        if (i % 10 === 0) {
+          output += "<br>"; 
+        } else {
+          output += " ";
+        }
+      }
+
+      outputDiv.innerHTML = output;
+      
+    });
+      </script>
+</body>
+</html>
